@@ -581,7 +581,7 @@ munge_line_in_editor(int UNUSED(count), int UNUSED(key))
   input[bytes_read] = '\0';
   rewritten_input = search_and_replace("\t", "    ", input, 0, NULL, NULL);     /* rlwrap cannot handle tabs in input lines */
   rewritten_input2 =
-    search_and_replace("\n", multiline_separator, rewritten_input, 0, NULL, NULL);
+    search_and_replace("\n", " ", rewritten_input, 0, NULL, NULL);
   for(p = rewritten_input2; *p ;p++)
     if(*p >= 0 && *p < ' ') /* @@@FIXME: works for UTF8, but not UTF16 or UTF32 (Mention this in manpage?)*/ 
       *p = ' ';        /* replace all control characters (like \r) by spaces */
